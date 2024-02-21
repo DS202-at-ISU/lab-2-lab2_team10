@@ -21,51 +21,57 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
 1. Inspect the first few lines of the dataset:
 
 - what variables are there?
-  ParcelID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, Year Built, Acres, Total Living Area (ft^2), Bedrooms, Finished Basement (ft^2), Lot Area (ft^2), AC, Fire place, Neighborhood
+  - ParcelID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, Year Built, Acres, Total Living Area (ft^2), Bedrooms, Finished Basement (ft^2), Lot Area (ft^2), AC, Fire place, Neighborhood
+  
 - of what type are the variables?
-  chr, chr, factor with 12 levels, factor with 5 levels, date, num, chr, num, num, num, num, num, num, chr, chr, factor with 42 levels
+  - chr, chr, factor with 12 levels, factor with 5 levels, date, num, chr, num, num, num, num, num, num, chr, chr, factor with 42 levels
 
--   what does each variable mean? The majority of these variables are fairly self explantory such as parcel ID, address, sale date, sale price, Year built, acres, total living area, bedrooms, finished basement, lot area, AC, and fireplace.
-
-The variables that are unique include the style which details the type of housing with 12 different types listed. Occupancy which details the type of housing that this is. Multi sale which determines whether the house was sold as a package deal. And finally Neighborhood which indiciates which neighborhood this house is a part of.
+- what does each variable mean? 
+  - The majority of these variables are fairly self explantory such as parcel ID, address, sale date, sale price, Year built, acres, total living area, bedrooms, finished basement, lot area, AC, and fireplace.
+  - The variables that are unique include Style which details the type of housing with 12 different types listed. Occupancy which details the type of housing that this is. Multi sale which determines whether the house was sold as a package deal. And finally Neighborhood which indiciates which neighborhood this house is a part of.
 
 - what do we expect their data range to be?
+  - The data ranges for the variables are as follows:
 
-The data ranges for the variables are as follows:
+  - Style: 1-12 which correlate with style factor
 
-Style: 1-12 which correlate with style factor
+  - Occupancy: 1-5 which correlate with occupancy factor
 
-Occupancy: 1-5 which correlate with occupancy factor
+  - Sale Date: Date between Jan 1 2017 and Decemeber 31 2022
 
-Sale Date: Date between Jan 1 2017 and Decemeber 31 2022
+  - Sale Price: Number between 0 and 20500000
 
-Sale Price: Number between 0 and 20500000
+  - Year Built: num between 0 and 2022
 
-Year Built: num between 0 and 2022
+  - Acres: Number between 0 and 13
 
-Acres: Number between 0 and 13
+  - Total Living Area: Number between 0 and 6007
 
-Total Living Area: Number between 0 and 6007
+  - Bedrooms: Number between 0 and 10
 
-Bedrooms: Number between 0 and 10
+  - Finished Basement Area: Number between 10 and 6496
 
-Finished Basement Area: Number between 10 and 6496
+  - Lot Area: Number between 0 and 523228
 
-Lot Area: Number between 0 and 523228
-
-Neighborhood: 1-42 which correlates with Neighborhood factor
+  - Neighborhood: 1-42 which correlates with Neighborhood factor
 
 2. is there a variable of special interest or focus?
-  The obvious variable of special interest is Sale Price; we chose this because all other variables have the potential to affect the Sale Price variable and it would likely have the highest range.
+    - The obvious variable of special interest is Sale Price; we chose this because all other variables have the potential to affect the Sale Price variable and it would likely have the highest range.
 
 3. start the exploration with the main variable:
 
 - what is the range of the variable? 
-  The range is between 0-20500000
+  - The range is between 0-20,500,000
 - draw a histogram for a numeric vaiable or a bar chart, if the variable is categorical. 
+```{r, message=FALSE}
+library(ggplot2)
+library(classdata)
+ggplot(ames, aes(x=ames$"Sale Price")) + geom_histogram(binwidth = 6000) + xlim(0, 1100000) + ylim(0, 150)
+```
+
 - what is the general pattern? is there anything odd?
-- follow-up on oddities: see 4
-  bring up multisale and many 0s
+  - The distribution of Sale Price follows a right-skewed distribution around a median of 170900. 
+  - There are several large spikes, including at 0, which are points in the data set where units of a building involved in a multisale were all marked as being sold for the total price of the apartment building. There were also many records with a recorded sale price of $0.
 
 4. pick a variable that might be related to the main variable.
 
