@@ -21,7 +21,9 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
 1. Inspect the first few lines of the dataset:
 
 - what variables are there?
+  ParcelID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, Year Built, Acres, Total Living Area (ft^2), Bedrooms, Finished Basement (ft^2), Lot Area (ft^2), AC, Fire place, Neighborhood
 - of what type are the variables?
+  chr, chr, factor with 12 levels, factor with 5 levels, date, num, chr, num, num, num, num, num, num, chr, chr, factor with 42 levels
 - what does each variable mean?
 - what do we expect their data range to be?
 
