@@ -37,6 +37,7 @@ The variables that are unique include the style which details the type of housin
 3. start the exploration with the main variable:
 
 - what is the range of the variable? 
+  The range is between 0-20500000
 - draw a histogram for a numeric vaiable or a bar chart, if the variable is categorical. 
 - what is the general pattern? is there anything odd?
 - follow-up on oddities: see 4
