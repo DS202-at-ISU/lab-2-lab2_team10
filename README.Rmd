@@ -28,10 +28,12 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
 - what do we expect their data range to be?
 
 2. is there a variable of special interest or focus?
+  The obvious variable of special interest is Sale Price; we chose this because all other variables have the potential to affect the Sale Price variable and it would likely have the highest range.
 
 3. start the exploration with the main variable:
 
 - what is the range of the variable? 
+  The range is between 0-20500000
 - draw a histogram for a numeric vaiable or a bar chart, if the variable is categorical. 
 - what is the general pattern? is there anything odd?
 - follow-up on oddities: see 4
