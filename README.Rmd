@@ -31,6 +31,30 @@ The variables that are unique include the style which details the type of housin
 
 - what do we expect their data range to be?
 
+The data ranges for the variables are as follows:
+
+Style: 1-12 which correlate with style factor
+
+Occupancy: 1-5 which correlate with occupancy factor
+
+Sale Date: Date between Jan 1 2017 and Decemeber 31 2022
+
+Sale Price: Number between 0 and 20500000
+
+Year Built: num between 0 and 2022
+
+Acres: Number between 0 and 13
+
+Total Living Area: Number between 0 and 6007
+
+Bedrooms: Number between 0 and 10
+
+Finished Basement Area: Number between 10 and 6496
+
+Lot Area: Number between 0 and 523228
+
+Neighborhood: 1-42 which correlates with Neighborhood factor
+
 2. is there a variable of special interest or focus?
   The obvious variable of special interest is Sale Price; we chose this because all other variables have the potential to affect the Sale Price variable and it would likely have the highest range.
 
