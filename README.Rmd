@@ -24,7 +24,11 @@ Submit a link to your repository on Canvas (only one submission per team) to sig
   ParcelID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, Year Built, Acres, Total Living Area (ft^2), Bedrooms, Finished Basement (ft^2), Lot Area (ft^2), AC, Fire place, Neighborhood
 - of what type are the variables?
   chr, chr, factor with 12 levels, factor with 5 levels, date, num, chr, num, num, num, num, num, num, chr, chr, factor with 42 levels
-- what does each variable mean?
+
+-   what does each variable mean? The majority of these variables are fairly self explantory such as parcel ID, address, sale date, sale price, Year built, acres, total living area, bedrooms, finished basement, lot area, AC, and fireplace.
+
+The variables that are unique include the style which details the type of housing with 12 different types listed. Occupancy which details the type of housing that this is. Multi sale which determines whether the house was sold as a package deal. And finally Neighborhood which indiciates which neighborhood this house is a part of.
+
 - what do we expect their data range to be?
 
 2. is there a variable of special interest or focus?
