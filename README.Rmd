@@ -76,4 +76,29 @@ ggplot(ames, aes(x=ames$"Sale Price")) + geom_histogram(binwidth = 6000) + xlim(
 4. pick a variable that might be related to the main variable.
 
 - what is the range of that variable? plot. describe the pattern.
+
 - what is the relationship to the main variable? plot a scatterplot, boxplot or facetted barcharts (dependening on the types of variables involved). Describe overall pattern, does this variable describe any oddities discovered in 3? Identify/follow-up on any oddities.
+
+Carter Parks: **Acres**- This variable has range 0 - 12.012
+```{r}
+ggplot(ames, aes(x = Acres)) +
+  geom_histogram(binwidth = 0.1) +
+  xlim(0, max(ames$Acres)) +
+  ylim(0, 150) +
+  labs(title = "Histogram of Acres",
+       x = "Acres",
+       y = "Frequency")
+```
+
+The acres variable follows an interesting pattern; most entries have values between 0 and 1, with the most entries in the first bin (0 - 0.1). Entries with higher values are few and far between; but there is one entry at 12 acres. 
+
+```{r}
+ggplot(ames, aes(x = Acres, y = `Sale Price`)) +
+  geom_point(color = "blue") +
+  labs(title = "Scatterplot of Acres vs Sale Price",
+       x = "Acres",
+       y = "Sale Price")
+```
+
+The acres variable has an odd relationship with Sale Price. It seems the vast majority of entries fall into the category with sub-2.5 acres and sales price less than 2,000,000. This makes it easy to identify the outliers, but more difficult to recognize a relationship between acres and sales price.
+
