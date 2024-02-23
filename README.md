@@ -148,9 +148,10 @@ sales price less than 2,000,000. This makes it easy to identify the
 outliers, but more difficult to recognize a relationship between acres
 and sales price.
 
-Ryan Rockey: **YearBuilt** - This variable has the range 1880 - 2022.
-There is one record with a incorrect YearBuilt value of 0 which I am
-ignoring for my purposes.
+Ryan Rockey: **YearBuilt**
+
+- This variable has the range 1880 - 2022. There is one record with a
+  incorrect YearBuilt value of 0 which I am ignoring for my purposes.
 
 ``` r
 ames_revised <- ames[ames$`YearBuilt` != 0, ] # removing the value where YearBuilt is 0
@@ -160,10 +161,11 @@ ggplot(ames_revised, aes(x="", y=YearBuilt)) + geom_boxplot() + ggtitle("Distrib
 
     ## Warning: Removed 447 rows containing non-finite values (`stat_boxplot()`).
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> The
-distribution of YearBuilt is heavily skewed left, which makes sense
-considering population growth will lead to more construction being
-required as time progresses.
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+- The distribution of YearBuilt is heavily skewed left, which makes
+  sense considering population growth will lead to more construction
+  being required as time progresses.
 
 ``` r
 ggplot(ames_revised, aes(x=YearBuilt, y=`Sale Price`)) + geom_point() + scale_y_log10() + ggtitle("YearBuilt vs. Sale Price")
@@ -175,9 +177,10 @@ ggplot(ames_revised, aes(x=YearBuilt, y=`Sale Price`)) + geom_point() + scale_y_
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-The pattern of the scatter plot follows a slightly positive, linear
-correlation. Many outliers are present across all years. One oddity the
-clear line of points across the chart where Sale Price = 0. Also,
-because the dataset compiles properties sold from 2017 to 2022, there is
-a clear increase in properties after 2017 due to all the new
-constructions that are also accounted for.
+- The pattern of the scatter plot follows a slightly positive, linear
+  correlation. Many outliers are present across all years.  
+- One oddity the clear line of points across the chart where Sale Price
+  = 0.  
+- Also, because the dataset compiles properties sold from 2017 to 2022,
+  there is a clear increase in properties after 2017 due to all the new
+  constructions that are also accounted for.
