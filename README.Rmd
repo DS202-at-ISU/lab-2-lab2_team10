@@ -124,3 +124,17 @@ ggplot(ames_revised, aes(x=YearBuilt, y=`Sale Price`)) + geom_point() + scale_y_
 - One oddity the clear line of points across the chart where Sale Price = 0.  
 - Also, because the dataset compiles properties sold from 2017 to 2022, there is a clear increase in properties after 2017 due to all the new constructions that are also accounted for.
 
+Carolyn Jones: **AC**
+
+- Because AC is a categorical variable, there is no range unless you map the responses to a number (0 for "No" and 1 for "Yes); doing this would give a range from 0-1.
+
+```{r}
+ggplot(ames, aes(x = AC)) + geom_bar(fill = 'pink')
+```
+
+- explain graph here (yippee!)
+
+```{r}
+
+```
+
