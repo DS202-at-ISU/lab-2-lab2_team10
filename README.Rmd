@@ -128,15 +128,14 @@ Carolyn Jones: **AC**
 
 - Because AC is a categorical variable, there is no range unless you map the responses to a number (0 for "No" and 1 for "Yes); doing this would give a range from 0-1.
 
-```{r}
+```{r echo=TRUE}
 ggplot(ames, aes(x = AC)) + geom_bar(fill = 'pink')
 ```
 
 - There isn't too much to explain here since the graph is very simple. Our variable AC has 2 different categories/values, "Yes" and "No". From the graph we can tell that a majority of properties in Ames have AC, with the number of "Yes" answers being around 6 times higher than the number of "No" answers.
 
-```{r}
-
-ames2 <- ames[ames$`Sale Price` != 0, ]
+```{r echo=TRUE}
+ames2 <- ames[ames$`Sale Price` != 0,]
 ggplot(ames2, aes(x = AC, y = `Sale Price`, color = AC)) + geom_boxplot() + scale_y_continuous(limits = c(0, 500000))
 ```
 
