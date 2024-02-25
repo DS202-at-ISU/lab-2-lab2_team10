@@ -132,9 +132,12 @@ Carolyn Jones: **AC**
 ggplot(ames, aes(x = AC)) + geom_bar(fill = 'pink')
 ```
 
-- explain graph here (yippee!)
+- There isn't too much to explain here since the graph is very simple. Our variable AC has 2 different categories/values, "Yes" and "No". From the graph we can tell that a majority of properties in Ames have AC, with the number of "Yes" answers being around 6 times higher than the number of "No" answers.
 
 ```{r}
 
+ames2 <- ames[ames$`Sale Price` != 0, ]
+ggplot(ames2, aes(x = AC, y = `Sale Price`, color = AC)) + geom_boxplot() + scale_y_continuous(limits = c(0, 500000))
 ```
 
+- From the box plot graph above, we can see a clear correlation between the sale price of a property and the presence of AC. The IQR's of both plots are relatively the same size, however the values that make them up differ drastically. The first quartile for properties with AC is around the same value as the third quartile for properties without; this shows that values with AC typically sell for much higher than values without. One oddity to note about the graph is the number of outliers in the "No" boxplot. 
