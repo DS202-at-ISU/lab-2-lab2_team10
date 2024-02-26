@@ -184,3 +184,91 @@ ggplot(ames_revised, aes(x=YearBuilt, y=`Sale Price`)) + geom_point() + scale_y_
 - Also, because the dataset compiles properties sold from 2017 to 2022,
   there is a clear increase in properties after 2017 due to all the new
   constructions that are also accounted for.
+
+Carolyn Jones: **AC**
+
+- Because AC is a categorical variable, there is no range unless you map
+  the responses to a number (0 for “No” and 1 for “Yes); doing this
+  would give a range from 0-1.
+
+``` r
+ggplot(ames, aes(x = AC)) + geom_bar(fill = 'pink')
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+- There isn’t too much to explain here since the graph is very simple.
+  Our variable AC has 2 different categories/values, “Yes” and “No”.
+  From the graph we can tell that a majority of properties in Ames have
+  AC, with the number of “Yes” answers being around 6 times higher than
+  the number of “No” answers.
+
+``` r
+ames2 <- ames[ames$`Sale Price` != 0,]
+ggplot(ames2, aes(x = AC, y = `Sale Price`, color = AC)) + geom_boxplot() + scale_y_continuous(limits = c(0, 500000))
+```
+
+    ## Warning: Removed 593 rows containing non-finite values (`stat_boxplot()`).
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+- From the box plot graph above, we can see a clear correlation between
+  the sale price of a property and the presence of AC. The IQR’s of both
+  plots are relatively the same size, however the values that make them
+  up differ drastically. The first quartile for properties with AC is
+  around the same value as the third quartile for properties without;
+  this shows that values with AC typically sell for much higher than
+  values without. One oddity to note about the graph is the number of
+  outliers in the “No” boxplot.
+
+Ryan Ledbetter **Bedrooms**
+
+- The rang fro bedrooms is from 0 to 10. There are a few that use N/A
+  but these will be ignored as I am treating them as incomplete data.
+
+``` r
+ggplot(ames, aes(x = Bedrooms)) + geom_histogram(binwidth = 1) + xlim(0, 10) + ylim(0, 2500) + labs(title = "Histogram of Bedrooms", x = "Number of bedrooms", y = "Frequency")
+```
+
+    ## Warning: Removed 447 rows containing non-finite values (`stat_bin()`).
+
+    ## Warning: Removed 2 rows containing missing values (`geom_bar()`).
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+- The distribution of the number of bedrooms for houses in Ames is a
+  normal distribution that is skew right.
+
+``` r
+ames3 <- ames[ames$Bedrooms != 'N/A', ]
+ames3 <- ames3[ames3$`Sale Price` != 0,]
+ames3 <- ames3[ames3$`Sale Price` < 14200000,]
+ames3$Bedrooms <- as.factor(ames3$Bedrooms)
+ggplot(ames3,aes(x = Bedrooms, y = `Sale Price`)) + geom_boxplot() + labs(title = "Box plot of Bedrooms vs Sale Price", x = "Number of bedrooms", y = "Sale Price")
+```
+
+    ## Warning: Removed 447 rows containing non-finite values (`stat_boxplot()`).
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- --> - For this
+boxplot, I removed the two highest prices for sales as they were a part
+of the multi-sale and did not fully represent the data. What can be seen
+from the box plot here, is that as the number for bedrooms increases, on
+average the price also increases. The seven bedroom houses and the ten
+bedroom houses act as outliers in this data set as they do not follow
+the trend of the rest of the graph, but this could be explained by
+lacking amounts of data seen from the histogram.
+
+- For the sake of completeness, I have included a boxplot showing the
+  data including the highest priced houses that were sold in the large
+  multisale.
+
+``` r
+ames3 <- ames[ames$Bedrooms != 'N/A', ]
+ames3 <- ames3[ames3$`Sale Price` != 0,]
+ames3$Bedrooms <- as.factor(ames3$Bedrooms)
+ggplot(ames3,aes(x = Bedrooms, y = `Sale Price`)) + geom_boxplot() + labs(title = "Box plot of Bedrooms vs Sale Price", x = "Number of bedrooms", y = "Sale Price")
+```
+
+    ## Warning: Removed 447 rows containing non-finite values (`stat_boxplot()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
