@@ -110,7 +110,7 @@ Ryan Rockey: **YearBuilt**
 ```{r, message=FALSE}
 ames_revised <- ames[ames$`YearBuilt` != 0, ] # removing the value where YearBuilt is 0
 
-ggplot(ames_revised, aes(x="", y=YearBuilt)) + geom_boxplot() + ggtitle("Distribution of YearBuil")
+ggplot(ames_revised, aes(x="", y=YearBuilt)) + geom_boxplot() + ggtitle("Distribution of YearBuilt")
 ```
 
 - The distribution of YearBuilt is heavily skewed left, which makes sense considering population growth will lead to more construction being required as time progresses.
